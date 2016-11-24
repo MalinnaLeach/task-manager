@@ -8,6 +8,7 @@ class Task extends Component {
         {this.props.description} {this.state.status}
         <br/>
         <button className="button" onClick={this.done}>Done!</button>
+        <button className="button" onClick={this.undone}>Undo!</button>
       </div>
     );
   }
@@ -16,10 +17,15 @@ class Task extends Component {
     super(props);
     this.state = { status: ""}
     this.done = this.done.bind(this);
+    this.undone = this.undone.bind(this);
   }
 
   done() {
     this.setState({ status: "is done"})
+  }
+
+  undone() {
+    this.setState({ status: ""})
   }
 };
 

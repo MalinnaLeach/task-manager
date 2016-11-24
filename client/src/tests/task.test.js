@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 import ReactDOM from 'react-dom';
-import App from './../components/App/App';
-import Task from './../components/App/Task';
+import App from './../App';
+import Task from './../Task';
 
 it('shows a task description', () => {
   const renderer = ReactTestUtils.createRenderer();
@@ -17,4 +17,16 @@ it('can mark a task as done', function () {
   expect(testDoc.state.status).not.toContain("is done");
   ReactTestUtils.Simulate.click(button[0]);
   expect(testDoc.state.status).toContain("is done");
+});
+
+it('can unmark a task as done', function () {
+  const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' />);
+  const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "button");
+  ReactTestUtils.Simulate.click(button[0]);
+  console.log(button[0]);
+  expect(testDoc.state.status).toContain("is done");
+  expect(testDoc.state.status).toContain("Undo!");
+  ReactTestUtils.Simulate.click(button[1]);
+  expect(testDoc.state.status).not.toContain("is done");
+  expect(testDoc.state.status).not.toContain("Done!");
 });
