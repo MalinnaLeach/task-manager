@@ -23,10 +23,9 @@ it('can unmark a task as done', function () {
   const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' />);
   const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "button");
   ReactTestUtils.Simulate.click(button[0]);
-  console.log(button[0]);
   expect(testDoc.state.status).toContain("is done");
-  expect(testDoc.state.status).toContain("Undo!");
-  ReactTestUtils.Simulate.click(button[1]);
+  expect(testDoc.state.button_status).toContain("Undo");
+  ReactTestUtils.Simulate.click(button[0]);
   expect(testDoc.state.status).not.toContain("is done");
-  expect(testDoc.state.status).not.toContain("Done!");
+  expect(testDoc.state.button_status).not.toContain("Undo");
 });
