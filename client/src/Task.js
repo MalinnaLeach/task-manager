@@ -8,6 +8,8 @@ class Task extends Component {
         {this.props.description} {this.state.status}
         <br/>
         <button className="button" onClick={this.button_text_setter}>{this.state.button_status}</button>
+        <br/>
+        <button className="button" onClick={this.removeTask}>Remove task</button>
       </div>
     );
   }
@@ -18,6 +20,7 @@ class Task extends Component {
     this.done = this.done.bind(this);
     this.undone = this.undone.bind(this);
     this.button_text_setter = this.button_text_setter.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   done() {
@@ -32,6 +35,10 @@ class Task extends Component {
 
   button_text_setter() {
     this.state.status === "" ? this.done() : this.undone();
+  }
+
+  removeTask() {
+    this.props.banana(this.props.description);
   }
 };
 
