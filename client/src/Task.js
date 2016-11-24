@@ -31,11 +31,7 @@ class Task extends Component {
   }
 
   button_text_setter() {
-    if (this.state.status === "") {
-      this.done();
-    } else {
-      this.undone();
-    }
+    this.state.status === "" ? this.done() : this.undone();
   }
 };
 
