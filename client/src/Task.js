@@ -14,7 +14,7 @@ class Task extends Component {
         <input type="text" className="tagInput"onChange={this.handleUpdate}/>
         &nbsp;&nbsp;
         <button className="addTag" onClick={this.addTag}>Add tag</button>
-        <div> {this.state.taskTags} </div>
+        <div> {this.state.taskTags.map(taskTag => (taskTag + ' '))} </div>
 
 
       </div>
@@ -37,7 +37,7 @@ class Task extends Component {
   }
 
   addTag() {
-    this.setState({ taskTags: [...this.state.taskTags, this.state.taskTag + ', '] });
+    this.setState({ taskTags: [...this.state.taskTags, this.state.taskTag] });
     this.setState({ taskTag: ""});
   }
 

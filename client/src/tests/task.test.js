@@ -39,5 +39,5 @@ it('should add a tag', function () {
   expect(testDoc.state.taskTags).not.toContain('travel');
   expect(testDoc.state.taskTag).toContain('travel');
   ReactTestUtils.Simulate.click(button[0]);
-  expect(testDoc.state.taskTags).toEqual(['travel, ']);
+  expect(testDoc.state.taskTags).toEqual(['travel']);
 })
