@@ -29,3 +29,15 @@ it('can unmark a task as done', function () {
   expect(testDoc.state.status).not.toContain("is done");
   expect(testDoc.state.button_status).not.toContain("Undo");
 });
+
+it('should add a tag', function () {
+  const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' />);
+  const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "addTag");
+  const addTagInput = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "tagInput");
+  addTagInput[0].value = 'travel';
+  ReactTestUtils.Simulate.change(addTagInput[0]);
+  expect(testDoc.state.taskTags).not.toContain('travel');
+  expect(testDoc.state.taskTag).toContain('travel');
+  ReactTestUtils.Simulate.click(button[0]);
+  expect(testDoc.state.taskTags).toEqual(['travel, ']);
+})
