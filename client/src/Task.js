@@ -9,7 +9,7 @@ class Task extends Component {
         <br/>
         <button className="button" onClick={this.button_text_setter}>{this.state.button_status}</button>
         <br/>
-        <button className="button" onClick={this.removeTask}>Remove task</button>
+        <button className="remove_button" onClick={this.removeTask}>Remove task</button>
       </div>
     );
   }
@@ -38,7 +38,7 @@ class Task extends Component {
   }
 
   removeTask() {
-    this.props.banana(this.props.description);
+    this.props.removeTask(this.props.description);
   }
 };
 

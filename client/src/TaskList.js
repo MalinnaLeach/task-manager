@@ -17,12 +17,12 @@ class TaskList extends Component {
     super(props);
     this.state =  { tasks: [ "Becoming an awesome dev", "Get paid lots of $$$", "Buy Mary some chocolates" ] };
     this.addTask = this.addTask.bind(this);
-    this.banana = this.banana.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   renderTasks() {
     return this.state.tasks.map(description=> (
-      <Task key={description} description={description} banana={this.banana}/>
+      <Task key={description} description={description} removeTask={this.removeTask}/>
     ));
   }
 
@@ -30,11 +30,11 @@ class TaskList extends Component {
     this.setState({ tasks: [...this.state.tasks, newDescription] });
   }
 
-  banana(task) {
-    const filteredTask = this.state.tasks.filter(description => {
+  removeTask(task) {
+    const filteredTasks = this.state.tasks.filter(description => {
       return description !== task;
     });
-    this.setState({ tasks: filteredTask });
+    this.setState({ tasks: filteredTasks });
   }
 }
 

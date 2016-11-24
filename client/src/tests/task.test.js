@@ -29,11 +29,3 @@ it('can unmark a task as done', function () {
   expect(testDoc.state.status).not.toContain("is done");
   expect(testDoc.state.button_status).not.toContain("Undo");
 });
-
-
-// it("can remove a task", () => {
-//   const testDoc = ReactTestUtils.renderIntoDocument(<Task description="Visit Japan!" />);
-//   const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "button")
-//    ReactTestUtils.Simulate.click(button[1]);
-//    expect()
-// });
