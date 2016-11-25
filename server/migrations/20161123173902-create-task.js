@@ -14,6 +14,9 @@ module.exports = {
       status: {
         type: Sequelize.STRING
       },
+      taskTags: {
+        type: Sequelize.ARRAY
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

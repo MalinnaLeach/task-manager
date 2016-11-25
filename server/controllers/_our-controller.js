@@ -16,7 +16,7 @@ exports.tasks = function (req, res, next) {
 
 exports.newTask = function (req, res, next) {
     console.log(req)
-    models.Task.create({description: req.body.description, status: "not yet"
+    models.Task.create({description: req.params.description, status: req.params.status, taskTags: []
     }).then(function() {
     res.redirect('/');
   });

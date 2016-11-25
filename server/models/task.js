@@ -2,7 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define('Task', {
     description: DataTypes.TEXT,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    taskTags: DataTypes.ARRAY
   }, {
     classMethods: {
       associate: function(models) {
