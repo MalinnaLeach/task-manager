@@ -4,7 +4,7 @@ import './addTask.css';
 class AddTask extends Component {
   render () {
     return (
-      <div className="addTask">
+      <div className="AddTask">
       <input type="text" className="taskInput"onChange={this.handleUpdate}/>
       &nbsp;&nbsp;
       <button className="addTaskButton" onClick={this.addTask}>Add</button>

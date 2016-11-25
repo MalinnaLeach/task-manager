@@ -7,6 +7,7 @@ class TaskList extends Component {
   render() {
     return(
       <div className="TaskList">
+      <h1>DO LIFE</h1>
       <AddTask addTask={ this.addTask } className="addTask" />
       { this.renderTasks() }
       </div>
@@ -15,7 +16,7 @@ class TaskList extends Component {
 
   constructor(props) {
     super(props);
-    this.state =  { tasks: [ "Becoming an awesome dev", "Get paid lots of $$$", "Buy Mary some chocolates" ] };
+    this.state =  { tasks: [ "Becoming an awesome dev", "Get paid lots of $$$"] };
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
   }
