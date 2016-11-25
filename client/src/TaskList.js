@@ -16,6 +16,7 @@ class TaskList extends Component {
 
   constructor(props) {
     super(props);
+
     // this.state =  { tasks: [ "Becoming an awesome dev", "Get paid lots of $$$", "Buy Mary some chocolates" ] };
     // this.addTask = this.addTask.bind(this);
     // this.getTasks = this.getTasks.bind(this);
@@ -44,11 +45,17 @@ class TaskList extends Component {
           <div className="TaskList">
             <AddTask className="addTask" />
             {json.tasks.map(function(task) {
-              return <div><Task key={task.id} description={task.description}/></div>;
+              return <div><Task key={task.id} description={task.description} removeTask={this.removeTask}/></div>;
             })};
           </div>,
       document.getElementById('root'));
   };
+
+
+    this.state =  { tasks: [ "Becoming an awesome dev", "Get paid lots of $$$", "Buy Mary some chocolates" ] };
+    this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
+  }
 
 
   // taskJSON.tasks.map(task => (
@@ -70,6 +77,14 @@ class TaskList extends Component {
       var taskJSON = JSON.parse(res.text);
       callback(taskJSON)
     });
+  }
+
+
+  removeTask(task) {
+    const filteredTasks = this.state.tasks.filter(description => {
+      return description !== task;
+    });
+    this.setState({ tasks: filteredTasks });
   }
 
 }
