@@ -37,7 +37,6 @@ class TaskList extends Component {
 
   renderTasks(removeTaskFunction) {
     this.createTasks()
-    console.log(this.state.tasks);
     return this.state.tasks.map(task=> (
        <Task key={task.id} id={task.id} description={task.description} status= {task.status} tags= {task.Tags} removeTask={removeTaskFunction}/>
      ));

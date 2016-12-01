@@ -30,10 +30,9 @@ it('can unmark a task as done', function () {
 it('should add a tag', function () {
   const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' status="" tags={[]}/>);
   const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "addTag");
-  const addTagInput = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "tagInput");
+  const addTagInput = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "tagNameInput");
   addTagInput[0].value = 'travel';
-  console.log(testDoc)
-  ReactTestUtils.Simulate.change(addTagInput[0],{ target: { value: 'travel' } });
+  ReactTestUtils.Simulate.change(addTagInput[0]);
   expect(testDoc.state.tags).toEqual([]);
   // expect(testDoc.state.newTag).toEqual('travel');
   ReactTestUtils.Simulate.click(button[0]);

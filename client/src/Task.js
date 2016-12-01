@@ -12,7 +12,7 @@ class Task extends Component {
           <br></br>
           <button type="button" className="remove_button" onClick={this.removeTask}>Delete task</button>
           <div className="tagInput">
-            <input type="text" ref="input" className="tagInput" onChange={this.handleUpdate}/>
+            <input type="text" ref="input" className="tagNameInput" onChange={this.handleUpdate}/>
             <button className="addTag" onClick={this.addTag}>Add tag</button>
           </div>
           <div className="tags"> {this.props.tags.map(tag => (tag.name + ' '))}{this.state.tags.map(tag => (tag.name + ' '))} </div>
@@ -72,7 +72,6 @@ class Task extends Component {
 
   handleUpdate(event) {
      this.setState({ newTag: event.target.value});
-     console.log("HELLO")
    }
 
    addTag() {
