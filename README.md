@@ -8,17 +8,21 @@ Instructions
 ----
 Note: You will need a postgres database named "task_development" set up to run this from your machine.
 
-
 Download and run the app:
 ```
 $ git clone git@github.com:malinnaleach/task-manager.git
 $ cd task-manager
-$ cd client
+$ cd server
 $ npm run start
 ```
 
 Navigate to localhost:3000 to see the app in action and add some tasks!
 
 
+To run the Jest testing suite:
+```
+$ cd client
+$ npm test
+```
 
 ![Screenshot](https://www.dropbox.com/s/c2btovu2fk3407w/Screen%20Shot%202016-11-30%20at%2021.48.26.png?raw=1)
