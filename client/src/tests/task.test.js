@@ -4,12 +4,6 @@ import ReactDOM from 'react-dom';
 import App from '../App';
 import Task from '../Task';
 
-// it('shows a task description', () => {
-//   const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' tags={[]} status=""/>);
-//   const taskName = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "text");
-//   expect(taskName).toContain('Visit Japan!');
-// });
-
 it('can mark a task as done', function () {
   const testDoc = ReactTestUtils.renderIntoDocument(<Task description='Visit Japan!' tags={[]} status=""/>);
   const button = ReactTestUtils.scryRenderedDOMComponentsWithClass(testDoc, "checkbox");
@@ -34,7 +28,6 @@ it('should add a tag', function () {
   addTagInput[0].value = 'travel';
   ReactTestUtils.Simulate.change(addTagInput[0]);
   expect(testDoc.state.tags).toEqual([]);
-  // expect(testDoc.state.newTag).toEqual('travel');
   ReactTestUtils.Simulate.click(button[0]);
   expect(testDoc.state.tags).toEqual([{name: 'travel'}]);
 });
